@@ -1,0 +1,3 @@
+export const FILTER_CATEGORIES = 'FILTER_CATEGORIES';
+export const ALL_CATEGORY = 'ALL_CATEGORY';
+export const ADD_MORE_POST = 'ADD_MORE_POST';

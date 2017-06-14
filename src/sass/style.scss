@@ -1,0 +1,287 @@
+@import "variables";
+@import "mixins";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100);
+
+body{
+  font:14px $font-family-base;
+  letter-spacing:.1px;
+  color:$gray;
+  background:$white;
+  margin:0;
+}
+
+a{
+  text-decoration:none;
+  outline:0;
+  @include transition(all .3s ease);
+}
+
+a:hover,
+a:focus{
+  text-decoration:none;
+  outline:0;
+}
+
+h2{
+  margin:0 0 60px;
+  font-size:42px;
+  font-weight:500;
+}
+
+h2, h3, h4, h5 {
+  color: $black;
+}
+
+h3{
+  margin:0 0 30px;
+  font-size:22px;
+  font-weight:500;
+}
+
+#container{
+  padding:30px;
+  width: 1170px;
+  margin: 0 auto;
+}
+
+figure {
+  margin: 0;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.post-container {
+
+  .post-item {
+    margin-bottom: 30px;
+  }
+
+  &.grid-layout {
+    .posts-list {
+      display: flex;
+      flex-flow: row wrap;
+      margin: 0 -15px;
+
+      .post-item {
+        width: calc(100%/ 3 - 30px);
+        flex: 0 0 calc(100%/ 3 - 30px);
+        margin: 0 15px;
+      }
+    }
+  }
+
+  &.masonry-layout {
+
+    .posts-list {
+      column-count: 3;
+      column-gap: 30px;
+      .post-item {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.list-layout {
+
+    .post-item {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.posts-list {
+  padding: 0 0 30px;
+
+  .post-list__item-content {
+    padding: 10px 0 0;
+
+    .entry-header {
+
+      .entry-meta {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -7px 20px;
+
+        .list-layout & {
+          justify-content: flex-start;
+        }
+
+        .posted-by {
+          i {
+            margin-right: 5px;
+            line-height: 1em;
+          }
+        }
+
+        .post__date {
+
+        }
+
+        > div {
+          margin: 0 7px;
+        }
+      }
+
+      .post__tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        a {
+          display: inline-block;
+          margin: 1px;
+          padding: 5px 10px;
+          color: $white;
+          background-color: $gray;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:hover {
+            background-color: $blue-lighter;
+          }
+        }
+      }
+    }
+
+    .entry-footer {
+
+      .entry-meta {
+
+      }
+    }
+  }
+}
+
+select {
+  background-color: $gray-lighter;
+  border: none;
+  height: 30px;
+  padding: 0 10px;
+  min-width: 200px;
+  font-size: .875rem;
+  color: $gray;
+  flex: 0 1 auto;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.control {
+  &__up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 30px;
+  }
+
+  &__down {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.post-pagination {
+  margin: 0;
+  @include reset-list;
+
+  li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-left: 1px;
+    color: $white;
+    background-color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    cursor: pointer;
+    @include transition(all .3s ease);
+
+    &:hover {
+      background-color: $blue-lighter;
+    }
+
+    &.active {
+      color: $white;
+      background-color: $blue-lighter;
+    }
+
+    &.prev, &.next {
+      padding-left: 10px;
+      padding-right: 10px;
+      width: auto;
+    }
+  }
+}
+
+.layout_filter {
+  margin: 0;
+  @include reset-list;
+
+  li {
+    float: left;
+    margin-left: 1px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: $white;
+    background-color: $gray;
+    display: flex;
+    align-items: center;
+    @include transition(all .3s ease);
+
+    &:hover, &.active {
+      background-color: $blue-lighter;
+    }
+  }
+}
+
+.items-body-enter {
+  opacity: 0.01;
+}
+
+.items-body-enter.items-body-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.items-body-leave {
+  opacity: 1;
+}
+
+.items-body-leave.items-body-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.filter-category {
+  display: flex;
+  justify-content: flex-end;
+  @include reset-list;
+
+  li {
+    margin-left: 1px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: $white;
+    background-color: $gray;
+    display: flex;
+    align-items: center;
+    @include transition(all .3s ease);
+
+    .icon {
+      margin-left: 5px;
+      line-height: 0;
+    }
+
+    &:hover, &.active {
+      background-color: $blue-lighter;
+    }
+  }
+}
