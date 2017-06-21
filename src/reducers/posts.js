@@ -1,5 +1,5 @@
 import { posts } from '../data/data';
-import { FILTER_CATEGORIES, ALL_CATEGORY, ADD_MORE_POSTS } from '../constants';
+import { FILTER_CATEGORIES, ALL_CATEGORY, ADD_MORE_POST } from '../constants';
 
 const activeFilters = {
     filters: []
@@ -32,7 +32,7 @@ export default (postState = posts, action) => {
 
         case ALL_CATEGORY : return posts;
 
-        case ADD_MORE_POSTS:
+        case ADD_MORE_POST:
 
             const arrPosts = [];
 
